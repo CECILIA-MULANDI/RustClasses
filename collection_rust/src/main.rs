@@ -39,7 +39,9 @@ use std::collections::HashMap;
 struct Class{
     // name and grade
     student:HashMap<String,u32>
+
 }
+
 impl Class{
     fn new()->Class{
         Class{student:HashMap::new()}

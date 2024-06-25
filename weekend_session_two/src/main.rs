@@ -150,16 +150,17 @@
 // the sum of all the second elements 
 // if the first elements are all odd, and 0 otherwise.
 fn main(){
-    summation((3,2),(9,8));
+    // summation((3,2),(9,8));
 }
-fn summation(a:(i32,i32),b:(i32,i32)){
+
+fn summation(a:Vec<(i32,i32)>){
 
     
-    let v2=vec![a,b];
+    // let v2=vec![a,b];
 
-    for (item1, _) in v2{
-        println!("item 1 {}",item1);
-    }
+    // for (item1, _) in v2{
+    //     println!("item 1 {}",item1);
+    // }
     // println!("{:?}",v2);
 
     // if v2[a.1] && v2[b.1] % 2==0{
