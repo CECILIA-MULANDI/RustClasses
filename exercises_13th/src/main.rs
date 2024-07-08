@@ -10,45 +10,65 @@
 // structs and traits
 // traits to show a summary of the stock
 
-use std::collections::HashMap;
-#[derive(Debug)]
-struct Shop{
-    items:HashMap<String,u64>
-}
-trait ShopManagement{
-    fn new(items:HashMap<String,u64>)->Self;
-    fn add_item(&mut self,item:String,quantity:u64);
-    fn summary(&self)->HashMap<String,u64>;
-    fn get_count(&self)->usize;
+// use std::collections::HashMap;
+// #[derive(Debug)]
+// struct Shop{
+//     items:HashMap<String,u64>
+// }
+// trait ShopManagement{
+//     fn new(items:HashMap<String,u64>)->Self;
+//     fn add_item(&mut self,item:String,quantity:u64);
+//     fn summary(&self)->HashMap<String,u64>;
+//     fn get_count(&self)->usize;
 
-}
-impl ShopManagement for Shop{
-    fn new(items:HashMap<String,u64>)->Self{
-        Shop{items}
-    }
-    fn add_item(&mut self,item:String,quantity:u64){
-        self.items.insert(item,quantity);
-    }
-    fn summary(&self)->HashMap<String,u64>{
-        self.items.clone()
-    }
-    fn get_count(&self)->usize{
-        self.items.len()
-    }
+// }
+// impl ShopManagement for Shop{
+//     fn new(items:HashMap<String,u64>)->Self{
+//         Shop{items}
+//     }
+//     fn add_item(&mut self,item:String,quantity:u64){
+//         self.items.insert(item,quantity);
+//     }
+//     fn summary(&self)->HashMap<String,u64>{
+//         self.items.clone()
+//     }
+//     fn get_count(&self)->usize{
+//         self.items.len()
+//     }
        
 
     
+// }
+
+
+fn find_largest<T:PartialOrd>(input:&Vec<T>)->&T{
+    let mut largest = &input[0];
+    for i in input{
+        if i > largest{
+            largest=i;
+        }
+    }
+    largest
+
 }
+fn find_smaller<T:PartialOrd>(a:T,b:T)->T{
+    if a < b{
+        return a
+    }
+    return b
+
+}
+
 fn main() {
    
-    let mut map=HashMap::new();
-    map.insert(String::from("Pen"),10);
-    let mut shop = Shop::new(map);
+    // let mut map=HashMap::new();
+    // map.insert(String::from("Pen"),10);
+    // let mut shop = Shop::new(map);
     
-    shop.add_item("Car".to_string(),20);
+    // shop.add_item("Car".to_string(),20);
     
-    println!("Below are the items in the shop {:?}",shop.summary());
-    println!("The count of items is {:?}",shop.get_count());
+    // println!("Below are the items in the shop {:?}",shop.summary());
+    // println!("The count of items is {:?}",shop.get_count());
 
 
     // let mut vec1=Vec::new();
@@ -68,6 +88,13 @@ fn main() {
     // }
     
     // println!("{:?}", map);
+
+    let input = vec![5,100,11100];
+    
+    println!("{:?}",find_largest(&input));
+    println!("The smaller value is {}",find_smaller(8, 9));
+    println!("The smaller value is {}",find_smaller('a', 'z'));
+
     
 
 }
